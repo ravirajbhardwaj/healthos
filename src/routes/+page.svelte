@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 	import GridPattern from '$lib/components/magic/grid-pattern/grid-pattern.svelte';
-
 	import {
 		Timer,
 		Dumbbell,
@@ -14,8 +13,12 @@
 		CheckCircle2
 	} from '@lucide/svelte';
 	import { enhance } from '$app/forms';
+	import { Input } from '$lib/components/ui/input';
+	import { Button } from '$lib/components/ui/button';
+	import { MetaTags } from 'svelte-meta-tags';
+	import Stats from '$lib/components/Stats.svelte';
 
-	let { form } = $props();
+	let { form }: { form?: { error?: string } } = $props();
 
 	let email = $state('');
 	let loading = $state(false);
@@ -71,8 +74,6 @@
 			]
 		}
 	];
-	import { MetaTags } from 'svelte-meta-tags';
-	import Stats from '$lib/components/Stats.svelte';
 </script>
 
 <MetaTags
@@ -110,7 +111,6 @@
 			class={cn('mask-[radial-gradient(800px_circle_at_top_center,white,transparent)]')}
 		/>
 
-		<!-- Hero -->
 		<section class="relative z-10 w-full px-4 pt-2 pb-2 md:px-6 md:pt-4">
 			<div class="mx-auto max-w-3xl text-center">
 				<!-- Formula badge -->
@@ -125,23 +125,15 @@
 
 				<!-- Title + floating labels -->
 				<div class="relative mx-auto w-fit">
-					<!-- Floating labels — desktop only -->
 					{#each floatingLabels as fl (fl.label)}
 						<div
-							class="absolute {fl.pos} {fl.rotate} hidden flex-col gap-1.5 rounded-xl
-           border lg:flex {fl.color}
-           min-w-40 px-3 py-2.5 text-xs font-medium whitespace-nowrap"
+							class="absolute {fl.pos} {fl.rotate} hidden flex-col gap-1.5 rounded-xl border lg:flex {fl.color} min-w-40 px-3 py-2.5 text-xs font-medium whitespace-nowrap"
 						>
-							<!-- existing header — same as before -->
 							<div class="flex items-center gap-1">
 								<fl.icon class="h-3 w-3" />
 								{fl.label}
 							</div>
-
-							<!-- divider -->
 							<div class="border-t border-current opacity-20"></div>
-
-							<!-- 2 bullet points -->
 							{#each fl.points as point (point)}
 								<div class="flex items-center gap-1.5 text-[11px] opacity-80">
 									<point.icon class="h-3 w-3 shrink-0" />
@@ -162,7 +154,7 @@
 					Track them. Improve them. Stay consistent.
 				</p>
 
-				<!-- Mobile feature pills — visible only on mobile -->
+				<!-- Mobile feature pills -->
 				<div class="mt-4 flex flex-wrap justify-center gap-2 lg:hidden">
 					{#each floatingLabels as fl (fl.label)}
 						<span
@@ -190,15 +182,16 @@
 								We sent a magic link to <strong>{email}</strong>.<br />Click it to sign in. Expires
 								in 15 minutes.
 							</p>
-							<button
-								class="mt-4 text-sm font-medium text-emerald-600 hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300"
+							<Button
+								variant="link"
+								class="mt-2 text-emerald-600 dark:text-emerald-400"
 								onclick={() => {
 									sent = false;
 									email = '';
 								}}
 							>
 								Use a different email
-							</button>
+							</Button>
 						</div>
 					{:else}
 						<form
@@ -208,42 +201,32 @@
 								loading = true;
 								return async ({ result, update }) => {
 									loading = false;
-									if (result.type === 'success') {
-										sent = true;
-									} else {
-										update();
-									}
+									if (result.type === 'success') sent = true;
+									else update();
 								};
 							}}
-							class="relative flex w-full max-w-md items-center rounded-full border border-zinc-200 bg-white p-1.5 shadow-2xl transition-all focus-within:ring-1 focus-within:ring-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:focus-within:ring-zinc-700"
+							class="flex w-full max-w-md gap-2"
 						>
-							<input
+							<Input
 								type="email"
 								name="email"
 								bind:value={email}
 								placeholder="Enter your email to sign in or join..."
 								required
-								class="min-w-0 flex-1 border-0 bg-transparent px-4 text-sm outline-none focus:ring-0 focus:outline-none md:px-6"
 								disabled={loading}
+								class="flex-1"
 							/>
-							<button
-								type="submit"
-								disabled={loading}
-								class="group flex shrink-0 items-center gap-2 rounded-full bg-zinc-900 px-4 py-2.5 text-sm font-bold text-white transition-all hover:bg-emerald-600 active:scale-95 disabled:opacity-70 md:px-6 dark:bg-zinc-100 dark:text-black dark:hover:bg-emerald-400"
-							>
+							<Button type="submit" disabled={loading}>
 								{#if loading}
 									Sending...
 								{:else}
-									Join Now
-									<Zap
-										class="h-3.5 w-3.5 fill-current transition-transform group-hover:rotate-12"
-									/>
+									Join Now <Zap class="ml-1 h-3.5 w-3.5 fill-current" />
 								{/if}
-							</button>
+							</Button>
 						</form>
-
+						<!-- eslint-disable-next-line -->
 						{#if form?.error}
-							<p class="text-sm font-medium text-red-500">
+							<p class="text-sm font-medium text-destructive">
 								{form.error === 'expired'
 									? 'Link expired. Request a new one.'
 									: 'Something went wrong. Please try again.'}
@@ -264,10 +247,10 @@
 								class="h-5 w-5 rounded-full border-2 border-white bg-orange-500 dark:border-zinc-900"
 							></div>
 						</div>
-						<span>
-							Join <span class="font-bold text-zinc-900 dark:text-zinc-200">2,400+</span> others already
-							in.
-						</span>
+						<span
+							>Join <span class="font-bold text-zinc-900 dark:text-zinc-200">2,400+</span> others already
+							in.</span
+						>
 					</div>
 				</div>
 			</div>
