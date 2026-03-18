@@ -205,7 +205,7 @@
 									else update();
 								};
 							}}
-							class="flex w-full max-w-md gap-2"
+							class="flex w-full max-w-md items-center justify-center gap-2"
 						>
 							<Input
 								type="email"
@@ -216,7 +216,7 @@
 								disabled={loading}
 								class="flex-1"
 							/>
-							<Button type="submit" disabled={loading}>
+							<Button type="submit" size="lg" disabled={loading}>
 								{#if loading}
 									Sending...
 								{:else}
