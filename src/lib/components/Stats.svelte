@@ -52,7 +52,7 @@
 			name: 'Chicken Breast',
 			serving: '100g cooked',
 			cat: 'protein',
-			emoji: '🍗',
+			emoji: '🥩',
 			cal: 165,
 			protein: 31,
 			carbs: 0,
@@ -276,29 +276,68 @@
 	];
 
 	const exercises: Exercise[] = [
+		// 1. HEAVIEST COMPOUND (Full Body Power)
 		{
-			name: 'Push-up',
+			name: 'Deadlift',
 			cat: 'exercise',
-			emoji: '💪',
+			emoji: '🏋️',
+			muscle: 'Hamstrings',
+			secondary: 'Back, Glutes',
+			sets: 4,
+			reps: '5-8',
+			rest: '120s',
+			level: 'Intermediate',
+			cardLight: 'bg-red-500/10',
+			cardDark: 'dark:bg-red-950/60',
+			border: 'border-red-500/40',
+			textLight: 'text-red-700',
+			textDark: 'dark:text-red-300'
+		},
+
+		// 2. LOWER BODY MAIN
+		{
+			name: 'Squat',
+			cat: 'exercise',
+			emoji: '🦵',
+			muscle: 'Quads',
+			secondary: 'Glutes, Hamstrings',
+			sets: 4,
+			reps: '6-10',
+			rest: '90s',
+			level: 'Beginner',
+			cardLight: 'bg-purple-500/10',
+			cardDark: 'dark:bg-purple-950/60',
+			border: 'border-purple-500/40',
+			textLight: 'text-purple-700',
+			textDark: 'dark:text-purple-300'
+		},
+
+		// 3. UPPER PUSH (Chest)
+		{
+			name: 'Bench Press',
+			cat: 'exercise',
+			emoji: '🫸',
 			muscle: 'Chest',
 			secondary: 'Triceps, Shoulders',
-			sets: 3,
-			reps: '12-15',
-			rest: '45s',
-			level: 'Beginner',
+			sets: 4,
+			reps: '6-10',
+			rest: '90s',
+			level: 'Intermediate',
 			cardLight: 'bg-blue-500/10',
 			cardDark: 'dark:bg-blue-950/60',
 			border: 'border-blue-500/40',
 			textLight: 'text-blue-700',
 			textDark: 'dark:text-blue-300'
 		},
+
+		// 4. UPPER PULL (Back)
 		{
 			name: 'Pull-up',
 			cat: 'exercise',
-			emoji: '🏋️',
+			emoji: '🧗‍♂️',
 			muscle: 'Back',
 			secondary: 'Biceps, Core',
-			sets: 3,
+			sets: 4,
 			reps: '6-10',
 			rest: '90s',
 			level: 'Intermediate',
@@ -308,38 +347,96 @@
 			textLight: 'text-indigo-700',
 			textDark: 'dark:text-indigo-300'
 		},
+
+		// 5. SHOULDERS
 		{
-			name: 'Squat',
+			name: 'Overhead Shoulder Press',
 			cat: 'exercise',
-			emoji: '🦵',
-			muscle: 'Quads',
-			secondary: 'Glutes, Hamstrings',
-			sets: 4,
+			emoji: '🙆',
+			muscle: 'Shoulders',
+			secondary: 'Triceps',
+			sets: 3,
+			reps: '8-10',
+			rest: '75s',
+			level: 'Intermediate',
+			cardLight: 'bg-cyan-500/10',
+			cardDark: 'dark:bg-cyan-950/60',
+			border: 'border-cyan-500/40',
+			textLight: 'text-cyan-700',
+			textDark: 'dark:text-cyan-300'
+		},
+
+		// 6. GLUTES FOCUS
+		{
+			name: 'Hip Thrust',
+			cat: 'exercise',
+			emoji: '🍑',
+			muscle: 'Glutes',
+			secondary: 'Hamstrings, Core',
+			sets: 3,
+			reps: '8-12',
+			rest: '75s',
+			level: 'Intermediate',
+			cardLight: 'bg-pink-500/10',
+			cardDark: 'dark:bg-pink-950/60',
+			border: 'border-pink-500/40',
+			textLight: 'text-pink-700',
+			textDark: 'dark:text-pink-300'
+		},
+
+		// 7. ARMS (Smaller Muscles)
+		{
+			name: 'Dips',
+			cat: 'exercise',
+			emoji: '🤸‍♂️',
+			muscle: 'Triceps',
+			secondary: 'Chest, Shoulders',
+			sets: 3,
+			reps: '8-12',
+			rest: '60s',
+			level: 'Intermediate',
+			cardLight: 'bg-rose-500/10',
+			cardDark: 'dark:bg-rose-950/60',
+			border: 'border-rose-500/40',
+			textLight: 'text-rose-700',
+			textDark: 'dark:text-rose-300'
+		},
+		{
+			name: 'Barbell Curl',
+			cat: 'exercise',
+			emoji: '💪',
+			muscle: 'Biceps',
+			secondary: 'Forearms',
+			sets: 3,
 			reps: '10-12',
 			rest: '60s',
 			level: 'Beginner',
-			cardLight: 'bg-purple-500/10',
-			cardDark: 'dark:bg-purple-950/60',
-			border: 'border-purple-500/40',
-			textLight: 'text-purple-700',
-			textDark: 'dark:text-purple-300'
+			cardLight: 'bg-amber-500/10',
+			cardDark: 'dark:bg-amber-950/60',
+			border: 'border-amber-500/40',
+			textLight: 'text-amber-700',
+			textDark: 'dark:text-amber-300'
 		},
+
+		// 8. CALVES
 		{
-			name: 'Deadlift',
+			name: 'Calf Raise',
 			cat: 'exercise',
-			emoji: '🏗️',
-			muscle: 'Hamstrings',
-			secondary: 'Back, Glutes',
+			emoji: '🦶',
+			muscle: 'Calves',
+			secondary: 'Soleus',
 			sets: 4,
-			reps: '5-8',
-			rest: '120s',
-			level: 'Advanced',
-			cardLight: 'bg-red-500/10',
-			cardDark: 'dark:bg-red-950/60',
-			border: 'border-red-500/40',
-			textLight: 'text-red-700',
-			textDark: 'dark:text-red-300'
+			reps: '12-20',
+			rest: '45s',
+			level: 'Beginner',
+			cardLight: 'bg-lime-500/10',
+			cardDark: 'dark:bg-lime-950/60',
+			border: 'border-lime-500/40',
+			textLight: 'text-lime-700',
+			textDark: 'dark:text-lime-300'
 		},
+
+		// 9. CORE (Always last)
 		{
 			name: 'Plank',
 			cat: 'exercise',
@@ -355,190 +452,8 @@
 			border: 'border-teal-500/40',
 			textLight: 'text-teal-700',
 			textDark: 'dark:text-teal-300'
-		},
-		{
-			name: 'Bench Press',
-			cat: 'exercise',
-			emoji: '🔩',
-			muscle: 'Chest',
-			secondary: 'Triceps, Delts',
-			sets: 4,
-			reps: '8-10',
-			rest: '90s',
-			level: 'Intermediate',
-			cardLight: 'bg-blue-500/10',
-			cardDark: 'dark:bg-blue-950/60',
-			border: 'border-blue-500/40',
-			textLight: 'text-blue-700',
-			textDark: 'dark:text-blue-300'
-		},
-		{
-			name: 'Lunges',
-			cat: 'exercise',
-			emoji: '🚶',
-			muscle: 'Quads',
-			secondary: 'Glutes, Calves',
-			sets: 3,
-			reps: '10/leg',
-			rest: '60s',
-			level: 'Beginner',
-			cardLight: 'bg-violet-500/10',
-			cardDark: 'dark:bg-violet-950/60',
-			border: 'border-violet-500/40',
-			textLight: 'text-violet-700',
-			textDark: 'dark:text-violet-300'
-		},
-		{
-			name: 'Shoulder Press',
-			cat: 'exercise',
-			emoji: '🙌',
-			muscle: 'Shoulders',
-			secondary: 'Triceps, Traps',
-			sets: 3,
-			reps: '10-12',
-			rest: '60s',
-			level: 'Intermediate',
-			cardLight: 'bg-cyan-500/10',
-			cardDark: 'dark:bg-cyan-950/60',
-			border: 'border-cyan-500/40',
-			textLight: 'text-cyan-700',
-			textDark: 'dark:text-cyan-300'
-		},
-		{
-			name: 'Bicep Curl',
-			cat: 'exercise',
-			emoji: '💪',
-			muscle: 'Biceps',
-			secondary: 'Forearms',
-			sets: 3,
-			reps: '12-15',
-			rest: '45s',
-			level: 'Beginner',
-			cardLight: 'bg-amber-500/10',
-			cardDark: 'dark:bg-amber-950/60',
-			border: 'border-amber-500/40',
-			textLight: 'text-amber-700',
-			textDark: 'dark:text-amber-300'
-		},
-		{
-			name: 'Tricep Dip',
-			cat: 'exercise',
-			emoji: '🤸',
-			muscle: 'Triceps',
-			secondary: 'Chest, Shoulders',
-			sets: 3,
-			reps: '10-12',
-			rest: '60s',
-			level: 'Intermediate',
-			cardLight: 'bg-rose-500/10',
-			cardDark: 'dark:bg-rose-950/60',
-			border: 'border-rose-500/40',
-			textLight: 'text-rose-700',
-			textDark: 'dark:text-rose-300'
-		},
-		{
-			name: 'Romanian DL',
-			cat: 'exercise',
-			emoji: '🏋️',
-			muscle: 'Hamstrings',
-			secondary: 'Glutes, Lower Back',
-			sets: 3,
-			reps: '10-12',
-			rest: '90s',
-			level: 'Intermediate',
-			cardLight: 'bg-orange-500/10',
-			cardDark: 'dark:bg-orange-950/60',
-			border: 'border-orange-500/40',
-			textLight: 'text-orange-700',
-			textDark: 'dark:text-orange-300'
-		},
-		{
-			name: 'Mountain Climb',
-			cat: 'exercise',
-			emoji: '🧗',
-			muscle: 'Core',
-			secondary: 'Shoulders, Hip Flex',
-			sets: 3,
-			reps: '20/leg',
-			rest: '30s',
-			level: 'Beginner',
-			cardLight: 'bg-emerald-500/10',
-			cardDark: 'dark:bg-emerald-950/60',
-			border: 'border-emerald-500/40',
-			textLight: 'text-emerald-700',
-			textDark: 'dark:text-emerald-300'
-		},
-		{
-			name: 'Lat Pulldown',
-			cat: 'exercise',
-			emoji: '🔽',
-			muscle: 'Lats',
-			secondary: 'Biceps, Rhomboids',
-			sets: 4,
-			reps: '10-12',
-			rest: '60s',
-			level: 'Beginner',
-			cardLight: 'bg-indigo-500/10',
-			cardDark: 'dark:bg-indigo-950/60',
-			border: 'border-indigo-500/40',
-			textLight: 'text-indigo-700',
-			textDark: 'dark:text-indigo-300'
-		},
-		{
-			name: 'Calf Raise',
-			cat: 'exercise',
-			emoji: '🦶',
-			muscle: 'Calves',
-			secondary: 'Soleus',
-			sets: 3,
-			reps: '15-20',
-			rest: '30s',
-			level: 'Beginner',
-			cardLight: 'bg-lime-500/10',
-			cardDark: 'dark:bg-lime-950/60',
-			border: 'border-lime-500/40',
-			textLight: 'text-lime-700',
-			textDark: 'dark:text-lime-300'
-		},
-		{
-			name: 'Face Pull',
-			cat: 'exercise',
-			emoji: '🎯',
-			muscle: 'Rear Delts',
-			secondary: 'Traps, Rotator Cuff',
-			sets: 3,
-			reps: '15-20',
-			rest: '45s',
-			level: 'Intermediate',
-			cardLight: 'bg-pink-500/10',
-			cardDark: 'dark:bg-pink-950/60',
-			border: 'border-pink-500/40',
-			textLight: 'text-pink-700',
-			textDark: 'dark:text-pink-300'
-		},
-		{
-			name: 'Hip Thrust',
-			cat: 'exercise',
-			emoji: '🍑',
-			muscle: 'Glutes',
-			secondary: 'Hamstrings, Core',
-			sets: 4,
-			reps: '12-15',
-			rest: '60s',
-			level: 'Intermediate',
-			cardLight: 'bg-purple-500/10',
-			cardDark: 'dark:bg-purple-950/60',
-			border: 'border-purple-500/40',
-			textLight: 'text-purple-700',
-			textDark: 'dark:text-purple-300'
 		}
 	];
-
-	const levelColor: Record<string, string> = {
-		Beginner: 'text-emerald-400',
-		Intermediate: 'text-amber-400',
-		Advanced: 'text-rose-400'
-	};
 
 	const categories = ['all', 'fruit', 'vegetable', 'grain', 'protein', 'dairy', 'exercise'];
 	let activeCategory = $state('all');
@@ -568,6 +483,7 @@
 	<div class="mb-6 flex flex-wrap justify-center gap-2">
 		{#each categories as cat (cat)}
 			<button
+				data-click-sfx="switch"
 				onclick={() => (activeCategory = cat)}
 				class="rounded-full border px-3 py-1 text-xs font-medium capitalize transition-all
           {activeCategory === cat
@@ -587,7 +503,7 @@
 				<div
 					class="group relative cursor-pointer overflow-hidden rounded-2xl border
                  {food.border} {food.cardLight} {food.cardDark}"
-					style="aspect-ratio: 3/4;"
+					style="aspect-ratio: 2/2;"
 				>
 					<!-- FRONT -->
 					<div
@@ -617,7 +533,7 @@
 
 					<!-- BACK -->
 					<div
-						class="absolute inset-0 flex flex-col justify-end rounded-2xl p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+						class="absolute inset-0 flex flex-col justify-center rounded-2xl p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 						style="background:rgba(9,9,11,0.90);backdrop-filter:blur(6px);"
 					>
 						<p class="mb-0.5 truncate text-[14px] font-semibold text-white">{food.name}</p>
@@ -661,7 +577,7 @@
 				<div
 					class="group relative cursor-pointer overflow-hidden rounded-2xl border
                  {ex.border} {ex.cardLight} {ex.cardDark}"
-					style="aspect-ratio: 3/4;"
+					style="aspect-ratio: 2/2;"
 				>
 					<!-- FRONT -->
 					<div
@@ -676,12 +592,13 @@
 							<p class="truncate text-xs leading-tight font-semibold {ex.textLight} {ex.textDark}">
 								{ex.name}
 							</p>
-							<p class="truncate text-[10px] {ex.textLight} {ex.textDark} opacity-60">
-								{ex.muscle}
-							</p>
-							<div class="mt-1.5 flex items-center justify-between">
-								<!-- level badge -->
-								<span class="text-[10px] font-medium {levelColor[ex.level]}">{ex.level}</span>
+							<div
+								class="flex items-center justify-between pt-2"
+								style="solid rgba(255,255,255,0.1)"
+							>
+								<span class="truncate text-[10px] {ex.textLight} {ex.textDark} opacity-60"
+									>{ex.muscle}</span
+								>
 								<span class="text-[11px] font-bold {ex.textLight} {ex.textDark}"
 									>{ex.sets}×{ex.reps}</span
 								>
@@ -691,11 +608,10 @@
 
 					<!-- BACK -->
 					<div
-						class="absolute inset-0 flex flex-col justify-end rounded-2xl p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+						class="absolute inset-0 flex flex-col justify-center rounded-2xl p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 						style="background:rgba(9,9,11,0.90);backdrop-filter:blur(6px);"
 					>
 						<p class="mb-0.5 truncate text-[14px] font-semibold text-white">{ex.name}</p>
-						<p class="mb-3 truncate text-[10px] {levelColor[ex.level]}">{ex.level}</p>
 
 						<!-- stats rows — same pattern as food macro rows -->
 						<div class="mb-3 flex flex-col gap-2">
@@ -727,15 +643,6 @@
 								<span class="text-[10px] text-white/60">Rest</span>
 								<span class="text-[10px] font-medium text-white">{ex.rest}</span>
 							</div>
-						</div>
-
-						<!-- Footer -->
-						<div
-							class="flex items-center justify-between pt-2"
-							style="border-top:0.5px solid rgba(255,255,255,0.1)"
-						>
-							<span class="text-[10px] text-white/40">exercise</span>
-							<span class="text-[11px] font-semibold {levelColor[ex.level]}">{ex.level}</span>
 						</div>
 					</div>
 				</div>
